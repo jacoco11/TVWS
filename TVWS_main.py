@@ -5,6 +5,7 @@ import TVWS_process
 import TVWS_tools1
 import TVWS_tools2
 import TVWS_main_filters
+import TVWS_cdf
 
 # GLOBALS
 # Global dictionaries for count, total, and average values. Values are stored here to prevent re-calculating and save time
@@ -320,7 +321,10 @@ def tools():
                 else: print("Invalid function for specified field; they are incompatible. ")
             else: print("Invalid function. Choose from 'count', 'total', or 'avg'. ")
         elif len(choiceList) == 3 and tool == "graph":
-            TVWS_tools2.graph(directory, graph, fieldFilter)
+            if func == "cdf":
+                TVWS_cdf.cdf_graph(directory, fieldFilter)
+            else:
+                print("Invalid function. Please choose from 'pdf' or 'bar'")
         else: print("Invalid command, re-enter. ")
 
 
